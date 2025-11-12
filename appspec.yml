@@ -1,18 +1,15 @@
 version: 0.0
-Resources:
-  - TargetService:
-      Type: AWS::EKS::Service
-      Properties:
-        ClusterName: brain-task-cluster
-        Namespace: default
-        TaskDefinition: brain-task-app
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/brain-task-app
 hooks:
   BeforeInstall:
     - location: scripts/cleanup.sh
       timeout: 300
-      runas: root
+      runas: ubuntu
   AfterInstall:
     - location: scripts/deploy.sh
       timeout: 600
-      runas: root
+      runas: ubuntu
 
