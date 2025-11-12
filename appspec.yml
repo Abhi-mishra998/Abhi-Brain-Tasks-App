@@ -5,11 +5,19 @@ files:
     destination: /home/ubuntu/brain-task-app
 hooks:
   BeforeInstall:
-    - location: scripts/cleanup.sh
+    - location: scripts/before_install.sh
       timeout: 300
       runas: ubuntu
   AfterInstall:
-    - location: scripts/deploy.sh
-      timeout: 600
+    - location: scripts/after_install.sh
+      timeout: 300
+      runas: ubuntu
+  ApplicationStart:
+    - location: scripts/start_server.sh
+      timeout: 300
+      runas: ubuntu
+  ApplicationStop:
+    - location: scripts/stop_server.sh
+      timeout: 300
       runas: ubuntu
 
