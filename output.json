@@ -1,0 +1,1 @@
+{"error": "Deploy script failed with error: /tmp/app/scripts/deploy.sh: line 5: aws: command not found\n"}

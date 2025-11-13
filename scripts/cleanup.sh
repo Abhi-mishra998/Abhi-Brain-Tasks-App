@@ -1,11 +1,11 @@
 #!/bin/bash
 set -e
 
-echo "Cleaning up old deployment (if exists)..."
+echo "Starting deployment to EKS cluster..."
 
-# Delete old deployment and service if they exist
-kubectl delete -f /home/ubuntu/brain-task-app/deployment.yaml --ignore-not-found
-kubectl delete -f /home/ubuntu/brain-task-app/service.yaml --ignore-not-found
+aws eks update-kubeconfig --region ap-south-1 --name brain-task-cluster
 
-echo "Cleanup completed!"
+kubectl apply -f /tmp/app/deployment.yaml
+kubectl apply -f /tmp/app/service.yaml
 
+echo "Deployment completed successfully!"

@@ -1,5 +1,8 @@
 #!/bin/bash
-set -e  # Exit immediately if a command fails
+set -e
+
+# Add Lambda layer binaries to PATH
+export PATH=/opt/bin:$PATH
 
 echo "Starting deployment to EKS cluster..."
 
@@ -7,8 +10,7 @@ echo "Starting deployment to EKS cluster..."
 aws eks update-kubeconfig --region ap-south-1 --name brain-task-cluster
 
 # Apply Kubernetes manifests
-kubectl apply -f /home/ubuntu/brain-task-app/deployment.yaml
-kubectl apply -f /home/ubuntu/brain-task-app/service.yaml
+kubectl apply -f /tmp/app/deployment.yaml
+kubectl apply -f /tmp/app/service.yaml
 
 echo "Deployment completed successfully!"
-
