@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -e  # Exit on any error
 
 # Add Lambda layer binaries to PATH
 export PATH=/opt/bin:$PATH

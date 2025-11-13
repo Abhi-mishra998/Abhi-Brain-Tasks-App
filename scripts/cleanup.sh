@@ -1,11 +1,13 @@
 #!/bin/bash
-set -e
+set -e  # Exit on any error
 
-echo "Starting deployment to EKS cluster..."
+# Add Lambda layer binaries to PATH
+export PATH=/opt/bin:$PATH
 
-aws eks update-kubeconfig --region ap-south-1 --name brain-task-cluster
+echo "Cleaning up old deployment (if exists)..."
 
-kubectl apply -f /tmp/app/deployment.yaml
-kubectl apply -f /tmp/app/service.yaml
+# Delete old deployment and service if they exist
+kubectl delete -f /tmp/app/deployment.yaml --ignore-not-found
+kubectl delete -f /tmp/app/service.yaml --ignore-not-found
 
-echo "Deployment completed successfully!"
+echo "Cleanup completed!"
