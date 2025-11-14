@@ -1048,13 +1048,6 @@ of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction...
 ```
 
-## 👤 Author
-
-**Abhishek Mishra**
-
-- GitHub: [@abhishek-mishra](https://github.com/abhishek-mishra)
-- Repository: [brain-task-app](https://github.com/abhishek-mishra/brain-task-app)
-- LinkedIn: [Abhishek Mishra](https://linkedin.com/in/abhishek-mishra)
 
 ## 🙏 Acknowledgments
 
